@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import logo from '../assets/img/logobg.png'
 
-export default function Login() {
+export default function Login({navigation}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignIn = () => {
     console.log("Signing in with:", username, password);
+    navigation.push('Home');
   };
 
   const handleSignUp = () => {
     console.log("Redirecting to sign up page...");
+    navigation.push('Register');
   };
 
   const handleForgotPassword = () => {
     console.log("Redirecting to forgot password page...");
+    navigation.push('ForgotPassword');
   };
 
   return (
@@ -55,14 +58,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
   },
   tinyLogo: {
-    width: 200,
-    height: 200,
+    width: 150,
+    height: 150,
   },
   label: {
-    marginVertical: 10,
+    marginVertical: 5,
     alignSelf: 'flex-start'
   },
   input: {
