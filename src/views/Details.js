@@ -7,15 +7,18 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import logo from "../assets/img/logo.png";
+import logo from "../../assets/img/logo.png";
 
-export default function Search({ navigation }) {
+export default function Details({ route, navigation }) {
+
+  const { item } = route.params;
+
   const handleDetails = () => {
     navigation.navigate("Detalhes");
   };
 
   const handleLocate = () => {
-    navigation.navigate("Localizar");
+    navigation.navigate("Localizar Livro", {item});
   };
 
   const handlePDF = () => {
@@ -28,32 +31,32 @@ export default function Search({ navigation }) {
       contentContainerStyle={{ justifyContent: "center" }}
     >
       <View>
-        <Image source={logo} style={styles.tinyLogo} />
+        <Image source={item.imagem} style={styles.tinyLogo} />
         <View style={styles.row}>
-          <Text style={styles.bookTitle}>Title: </Text>
-          <Text>Book 1</Text>
+          <Text style={styles.bookTitle}>Titulo: </Text>
+          <Text>{item.titulo}</Text>
         </View>
         <View style={styles.row}>
-            <Text style={styles.bookTitle}>Author: </Text>
-            <Text>Author 1</Text>
+            <Text style={styles.bookTitle}>Autor(es): </Text>
+            <Text>{item.autor}</Text>
         </View>
         <View style={styles.row}>
-            <Text style={styles.bookTitle}>Category: </Text>
-            <Text>Category 1</Text>
+            <Text style={styles.bookTitle}>Categoria: </Text>
+            <Text>{item.categoria}</Text>
         </View>
         <View style={styles.row}>
             <Text style={styles.bookTitle}>Ano de publicação: </Text>
-            <Text>2005</Text>
+            <Text>{item.ano}</Text>
         </View>
         <View style={styles.row}>
-            <Text><Text style={styles.bookTitle}>Overview: </Text>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi asperiores in ea! Harum perferendis tempore labore possimus totam libero eum, numquam est nesciunt iste praesentium vitae repudiandae in ut nihil?</Text>
+            <Text><Text style={styles.bookTitle}>Overview: </Text>{item.sinopse}</Text>
         </View>
 
         <View style={{...styles.row, justifyContent: 'space-around', marginTop: 15}}>
-            <TouchableOpacity style={styles.locateButton}>
+            <TouchableOpacity style={styles.locateButton} onPress={handleLocate}>
                 <Text style={{color: 'white'}}>Localizar Livro</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.pdfButton}>
+            <TouchableOpacity style={styles.pdfButton} onPress={handleDetails}>
                 <Text style={{color: 'white'}}>Baixar PDF</Text>
             </TouchableOpacity>
         </View>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import logo from '../assets/img/logobg.png'
+import logo from '../../assets/img/logobg.png'
 
 export default function ConfirmRegister({navigation}) {
   

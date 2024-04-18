@@ -2,14 +2,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import ConfirmRegister from "../pages/ConfirmRegister";
-import ForgotPassword from "../pages/ForgotPassword";
-import Details from "../pages/Details";
-import Home from "../pages/Home";
-import Location from "../pages/Location";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
-import Search from "../pages/Search";
+import ConfirmRegister from "../views/ConfirmRegister";
+import ForgotPassword from "../views/ForgotPassword";
+import Details from "../views/Details";
+import Home from "../views/Home";
+import Location from "../views/Location";
+import Login from "../views/Login";
+import Register from "../views/Register";
+import Search from "../views/Search";
 
 
 const Drawer = createDrawerNavigator();
@@ -24,7 +24,7 @@ export default function Routes() {
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
             <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
             <Stack.Screen name="ConfirmRegister" component={ConfirmRegister} options={{ headerShown: false }} />    
-            <Stack.Screen name="Home" component={InsideApp} options={{ headerShown: false }} />
+            <Stack.Screen name="HomeDrawer" component={InsideApp} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 
@@ -33,7 +33,7 @@ export default function Routes() {
             <Drawer.Screen name="Home" component={Home} options={navigationDrawerOptions} />
             <Drawer.Screen name="Buscar" component={Search} options={navigationDrawerOptions} />
             <Drawer.Screen name="Detalhes" component={Details} options={navigationDrawerOptions} />
-            <Drawer.Screen name="Localizar" component={Location} options={navigationDrawerOptions} />
+            <Drawer.Screen name="Localizar Livro" component={Location} options={navigationDrawerOptions} />
       </Drawer.Navigator>
     )
   

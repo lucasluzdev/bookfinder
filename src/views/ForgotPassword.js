@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ToastAndroid } from 'react-native';
-import logo from '../assets/img/logobg.png'
+import logo from '../../assets/img/logobg.png'
 
 export default function ForgotPassword({navigation}) {
   const [username, setUsername] = useState("");

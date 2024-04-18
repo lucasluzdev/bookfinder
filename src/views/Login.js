@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import logo from '../assets/img/logobg.png'
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ToastAndroid } from 'react-native';
+import logo from '../../assets/img/logobg.png'
 
 export default function Login({navigation}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSignIn = () => {
-    console.log("Signing in with:", username, password);
-    navigation.push('Home');
+    if (username == 'adm' && password == '123')  {
+      navigation.push('HomeDrawer');
+    }
+    else {
+      ToastAndroid.showWithGravityAndOffset(
+        `Email ou senha incorretos. Por favor, verifique e tente novamente`,
+        ToastAndroid.LONG,
+        ToastAndroid.BOTTOM,
+        25,
+        50,
+      );
+    }
+    
   };
 
   const handleSignUp = () => {
@@ -24,10 +35,10 @@ export default function Login({navigation}) {
   return (
     <View style={styles.container}>
       <Image source={logo} style={styles.tinyLogo} resizeMode="contain" />
-      <Text style={styles.label}>Email</Text>
+      <Text style={styles.label}>Usuário</Text>
       <TextInput
         style={styles.input}
-        placeholder="Digite o seu email"
+        placeholder="Digite o seu nome de usuário"
         value={username}
         onChangeText={setUsername}
       />
