@@ -411,7 +411,7 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderWidth: 1,
     width: 160,
-    height: '100%'
+    height: '100%'  
   },
   bookTitle: {
     fontSize: 11,
